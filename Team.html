@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Song's page</title>
+    <link href="/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <div id="logo">
+          <a href="/index.html">SONG'S PORTFOLIO</a>
+        </div>
+        <ul id="topmenu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/studynote.html">StudyNote</a></li>
+          <li><a href="/project.html">Project</a></li>
+          <li>
+            <a
+              href="/Team.html"
+              style="
+                text-shadow: 6px 6px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000,
+                  5px 5px 0 #000;
+              "
+              >Team</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1 class="team">
+        <span id="team-text" class="exp3"></span><span class="cursor">|</span>
+        <h3 class="exp2">멤버들의 정보를 원한다면 카드를 클릭해보시긔</h3>
+      </h1>
+      <div id="member">
+        <div class="mem">
+          <div class="mem-front">
+            <p class="row">박민영</p>
+            <br />
+
+            <img src="/image/박민영.png" width="100" /><br />
+          </div>
+          <div class="mem-back">
+            <p class="row">92410756</p>
+
+            <p>MBTI: ISTP</p>
+            <br />
+            <p>GitHub</p>
+            <a href="https://github.com/minyeong0125" target="_blank"
+              ><img src="/image/git.png" width="50"
+            /></a>
+          </div>
+        </div>
+        <div class="mem">
+          <div class="mem-front">
+            <p class="row">송미강</p>
+            <br />
+
+            <img src="/image/송미강.png" width="100" /><br />
+          </div>
+          <div class="mem-back">
+            <p class="row">92410794</p>
+
+            <p>MBTI: ISFP</p>
+            <br />
+            <p>GitHub</p>
+            <a href="https://github.com/Junbyung2" target="_blank"
+              ><img src="/image/git.png" width="50"
+            /></a>
+          </div>
+        </div>
+        <div class="mem">
+          <div class="mem-front">
+            <p class="row">원종은</p>
+            <br />
+
+            <img src="/image/원종은.png" width="100" /><br />
+          </div>
+          <div class="mem-back">
+            <p class="row">92410823</p>
+
+            <p>MBTI: ISTJ</p>
+            <br />
+            <p>GitHub</p>
+            <a href="https://github.com/euniii0224" target="_blank"
+              ><img src="/image/git.png" width="50"
+            /></a>
+          </div>
+        </div>
+        <div class="mem">
+          <div class="mem-front">
+            <p class="row">이성혜</p>
+            <br />
+
+            <img src="/image/이성혜.png" width="100" /><br />
+          </div>
+          <div class="mem-back">
+            <p class="row">92415548</p>
+
+            <p>MBTI: ISTP</p>
+            <br />
+            <p>GitHub</p>
+            <a href="https://github.com/SuNghYe414" target="_blank"
+              ><img src="/image/git.png" width="50"
+            /></a>
+          </div>
+        </div>
+        <div class="mem">
+          <div class="mem-front">
+            <p class="row">허다현</p>
+            <br />
+
+            <img src="/image/허다현.png" width="100" /><br />
+          </div>
+          <div class="mem-back">
+            <p class="row">92410990</p>
+
+            <p>MBTI: INFP</p>
+            <br />
+            <p>GitHub</p>
+            <a href="https://github.com/chick127" target="_blank"
+              ><img src="/image/git.png" width="50"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider">
+        <div class="slides">
+          <div class="slide">
+            <br />
+            <h2>Project 1</h2>
+            <br />
+            <a href="https://team-pro-lemon.vercel.app/"
+              ><img src="/image/team1.JPG" height="200"
+            /></a>
+            <p class="desc">
+              생성형 AI가 웹 개발에 미치는 영향과 활용 사례를 소개하는
+              홈페이지입니다.
+            </p>
+          </div>
+          <div class="slide">
+            <br />
+            <h2>Project 2</h2>
+            <br />
+            <img src="/image/team2.JPG" height="200" />
+            <p class="desc">졸업작품으로 준비 중인 웹 기반 플랫폼입니다.</p>
+          </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </main>
+
+    <script>
+      const teamTextTarget = document.getElementById("team-text");
+      const teamText = "팀 미정";
+      let teamIndex = 0;
+
+      function typingTeamEffect() {
+        if (!teamTextTarget) return;
+
+        if (teamIndex < teamText.length) {
+          teamTextTarget.innerHTML += teamText.charAt(teamIndex);
+          teamIndex++;
+          setTimeout(typingTeamEffect, 150);
+        } else {
+          setTimeout(() => {
+            teamTextTarget.innerHTML = "";
+            teamIndex = 0;
+            typingTeamEffect();
+          }, 2000);
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", typingTeamEffect);
+
+      //카드뒤집기효과
+      document.querySelectorAll(".mem").forEach((mem) => {
+        mem.addEventListener("click", () => {
+          mem.classList.toggle("flipped");
+        });
+      });
+
+      //슬라이드
+      const slides = document.querySelector(".slides");
+      const slideElements = document.querySelectorAll(".slide");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+
+      let currentIndex = 0;
+      const totalSlides = slideElements.length;
+
+      function updateSlidePosition() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlidePosition();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlidePosition();
+      });
+
+      //둥둥
+      document.querySelectorAll(".mem").forEach((mem) => {
+        const delay = Math.random() * 2; // 0~2초 랜덤 딜레이
+        mem.style.animationDelay = `${delay}s`;
+      });
+    </script>
+    <footer>
+      <p>Thank you for visiting @</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,687 @@
+/* 모든 페이지 공통 */
+
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+ul#topmenu li a {
+  text-shadow: none;
+  transition: text-shadow 0.3s ease;
+}
+
+ul#topmenu li a:hover {
+  text-shadow: 6px 6px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(130, 67, 67);
+  color: rgb(255, 255, 255);
+}
+
+body {
+  font-family: "DungGeunMo";
+  /* font-family: "Press Start 2P", cursive; */
+}
+
+a {
+  text-decoration-line: none;
+}
+
+.navbar {
+  font-family: "Press Start 2P", cursive;
+  margin-top: 30px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar #logo {
+  font-size: xx-large;
+  margin-left: 20px;
+}
+
+.navbar a {
+  display: flex;
+  font-size: large;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+footer {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  font-size: small;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* 인덱스 페이지 */
+
+.start-box h2 {
+  /* display: block; */
+  /* font-family: "Do Hyeon"; */
+  text-align: center;
+  margin: 100px 150px;
+  margin-bottom: 0px;
+  padding: 200px;
+  border: 4px solid white;
+  box-shadow: 8px 8px 0 #000000a3; /* 아래 + 오른쪽 그림자 */
+  background-color: rgb(132, 66, 66);
+}
+/* 타이핑 애니메이션 */
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 0.7s step-end infinite;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+#arrow {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  margin: 40px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.box {
+  margin: 30px 40px;
+  padding: 120px 100px;
+  text-align: center;
+  border: 4px solid white;
+  box-shadow: 8px 8px 0 #000000a3;
+}
+
+.exp {
+  text-align: center;
+}
+
+.block3 img {
+  border: 4px solid white;
+  box-shadow: 8px 8px 0 #000000a3;
+}
+
+/* 프로젝트페이지 */
+
+.exp3 {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.block3 {
+  margin: 0px 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.project {
+  padding: 20px 30px;
+  font-size: large;
+  transition: transform 0.2s ease-in-out;
+}
+
+.title {
+  padding: 15px 0px;
+  border: 4px solid white;
+  box-shadow: 8px 8px 0 #000000a3;
+  border-bottom: none;
+}
+
+.input {
+  display: none;
+  padding: 15px 20px;
+  border: 4px solid white;
+  box-shadow: 8px 8px 0 #000000a3;
+}
+
+.project p {
+  line-height: 35px;
+}
+
+.exp2 {
+  text-align: center;
+  font-family: "DungGeunMo";
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.button {
+  padding: 5px 5px;
+  border: 2px solid white;
+}
+
+/* 팀페이지 */
+
+.team {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#member {
+  display: flex;
+  justify-content: center;
+  margin: 30px 100px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.mem {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 4px solid white;
+  box-shadow: 8px 8px 0 #000000a3;
+  width: 120px;
+  height: 180px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 카드회전효과 */
+
+.mem-front,
+.mem-back {
+  position: absolute;
+  width: 82%;
+  height: 85%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  transition: transform 0.6s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mem-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.mem-back {
+  transform: rotateY(180deg);
+}
+
+.mem.flipped .mem-front {
+  transform: rotateY(180deg);
+}
+
+.mem.flipped .mem-back {
+  transform: rotateY(360deg);
+}
+
+/* 카드회전 끝 */
+
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 0px 100px;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  box-shadow: 8px 8px 0 #000000a3;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  text-align: center;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: 10px;
+  padding: 0 10px 20px;
+}
+
+/*둥둥떠다니게*/
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatSlide {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.slider {
+  animation: floatSlide 3s ease-in-out infinite;
+}
+
+.mem {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+/* 스터디노트페이지 */
+.slider2 {
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+}
+
+.slides2 {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.slide2 {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.content-row2 {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.card2 {
+  flex: 1;
+  min-height: 250px;
+  padding: 15px;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.card2:nth-child(2) {
+  flex: 1.5; /* 풀이 칸 더 넓게 */
+}
+
+pre {
+  padding: 10px;
+  overflow-x: auto;
+  border: 1px solid white;
+  font-size: 0.9em;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  color: #ffffff;
+}
+
+button.prev {
+  left: 10px;
+}
+button.next {
+  right: 10px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 0.8s steps(1) infinite;
+  color: rgb(255, 255, 255);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 반응형 기능 */
+/* index */
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar a {
+    font-size: medium;
+    margin: 5px 0;
+  }
+
+  .start-box h2 {
+    margin: 50px 20px;
+    padding: 100px 20px;
+    font-size: 0.8rem;
+  }
+
+  section {
+    margin: 30px 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .box {
+    margin: 20px 10px;
+    padding: 60px 40px;
+  }
+
+  #arrow img {
+    height: 80px;
+  }
+
+  #logo {
+    font-size: x-large;
+  }
+
+  .exp {
+    font-size: 0.9rem;
+  }
+}
+
+/*  모바일 (480px 이하) */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navbar a {
+    font-size: 0.75rem;
+  }
+
+  .start-box h2 {
+    font-size: 0.7rem;
+    padding: 80px 10px;
+    margin: 30px 10px;
+  }
+
+  .box {
+    padding: 40px 20px;
+    font-size: 0.9rem;
+  }
+
+  #arrow {
+    margin: 30px;
+  }
+
+  footer {
+    font-size: 0.6rem;
+  }
+}
+
+/* studynote */
+@media screen and (max-width: 768px) {
+  .slide2 {
+    padding: 20px 15px;
+  }
+
+  .content-row2 {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card2 {
+    font-size: 0.9rem;
+    min-height: auto;
+  }
+
+  .card2:nth-child(2) {
+    flex: 1;
+  }
+
+  pre {
+    font-size: 0.8em;
+  }
+
+  .exp3 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+  }
+
+  button.prev,
+  button.next {
+    font-size: 1.5rem;
+    top: 45%;
+  }
+}
+
+/* 반응형: 모바일 (480px 이하) */
+@media screen and (max-width: 480px) {
+  .slider2 {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .card2 {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .slide2 h2 {
+    font-size: 1.1rem;
+  }
+
+  .exp3 {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+
+  button.prev,
+  button.next {
+    font-size: 1.2rem;
+    top: 40%;
+  }
+
+  .cursor {
+    font-size: 1.2rem;
+  }
+}
+
+/* 프로젝트 */
+@media screen and (max-width: 1024px) {
+  .block3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .exp3 {
+    font-size: 40px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .block3 {
+    grid-template-columns: 1fr;
+  }
+
+  .exp3 {
+    font-size: 32px;
+  }
+
+  .project {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .input {
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .exp3 {
+    font-size: 26px;
+  }
+
+  .exp2 {
+    font-size: 14px;
+  }
+
+  .project p {
+    font-size: 14px;
+  }
+}
+/* 팀 */
+@media (max-width: 768px) {
+  .team {
+    font-size: 14px;
+    margin-top: 60px;
+    padding: 0 10px;
+  }
+
+  .slider {
+    padding: 0 20px;
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  #member {
+    margin: 20px;
+    gap: 15px;
+  }
+
+  .mem {
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+  }
+
+  .mem-front,
+  .mem-back {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .team {
+    font-size: 12px;
+  }
+
+  .slider {
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .slide h2 {
+    font-size: 16px;
+  }
+
+  .slide img {
+    height: 150px;
+  }
+
+  .prev,
+  .next {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+
+  .mem {
+    width: 90px;
+    height: 140px;
+    font-size: 10px;
+  }
+
+  #member {
+    gap: 10px;
+    margin: 10px;
+  }
+}

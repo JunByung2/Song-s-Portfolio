@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Song's page</title>
+    <link href="/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <div id="logo">
+          <a href="/index.html">SONG'S PORTFOLIO</a>
+        </div>
+        <ul id="topmenu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/studynote.html">StudyNote</a></li>
+          <li>
+            <a
+              href="/project.html"
+              style="
+                text-shadow: 6px 6px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000,
+                  5px 5px 0 #000;
+              "
+              >Project</a
+            >
+          </li>
+          <li><a href="/Team.html">Team</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="exp3" id="typing-title">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </h1>
+      <h3 class="exp2">설명을 보려면 사진을 클릭하시긔</h3>
+      <div class="block3">
+        <div class="project">
+          <h2 class="title">WebDemo</h2>
+          <img src="/image/pro1.JPG" height="200" />
+          <p class="input">
+            HTML과 HTML의 기본적인 태그들을 배운 후 그것을 바탕으로 만든
+            웹페이지이다. 페이지는 본인에 대한 정보가 담겨있는 About, 본인과
+            연락할 수 있는 연락망에 대한 정보가 담겨있는 Contact, 팀프로젝트를
+            함께할 팀원들을 소개하는 페이지로 구성되어있다.
+          </p>
+          <br /><br />
+          <a href="https://web-demo-zeta.vercel.app/" class="button"
+            >방문하기</a
+          >
+        </div>
+        <div class="project">
+          <h2 class="title">HTML2</h2>
+          <img src="/image/pro2.JPG" height="200" />
+          <p class="input">
+            HTML에 대해 기본적인 태그들을 배운 후 만든 두 번째 웹사이트이다.
+            테이블을 이용하여 시간표를 만든 강의 시간표 페이지, 이미지, 오디오,
+            비디오 등을 다양하게 넣어본 페이지, HTML의 form 태그와 input 태그의
+            다양한 속성들을 이용하여 만든 설문조사 페이지로 이루어져 있다. 이
+            페이지는 css가 들어가지 않고 정말 필요한 요소들만 넣은 뼈다귀
+            페이지이다.
+          </p>
+          <br /><br />
+          <a
+            href="https://html-ex-junbyung2s-projects.vercel.app/index.html"
+            class="button"
+            >방문하기</a
+          >
+        </div>
+        <div class="project">
+          <h2 class="title">PORTFOLIO</h2>
+          <img src="/image/pro3.JPG" height="200" />
+          <p class="input">
+            웹 프로그래밍 수업의 중간고사 개인 과제 중 하나이다. HTML과 CSS를
+            이용해 만든 개인 포트폴리오 웹사이트이다. 기본 뼈대를 HTML로 잡고
+            CSS를 이용하여 통일성 있고 보기 좋게 입맛대로 디자인하였다. 이
+            페이지를 제작하면서 CSS를 만지며 웹페이지를 디자인하는 것에 흥미를
+            느꼈다.
+          </p>
+          <br /><br />
+          <a
+            href="https://portfolio-iota-eosin-82.vercel.app/index.html"
+            class="button"
+            >방문하기</a
+          >
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll(".project").forEach((project) => {
+        project.addEventListener("click", () => {
+          const img = project.querySelector("img");
+          const text = project.querySelector(".input");
+
+          if (img.style.display !== "none") {
+            img.style.display = "none";
+            text.style.display = "block";
+          } else {
+            img.style.display = "block";
+            text.style.display = "none";
+          }
+        });
+      });
+
+      //떠다니는 애니메이션
+      document.querySelectorAll(".project").forEach((project, index) => {
+        let direction = 1;
+        let position = 0;
+
+        setInterval(() => {
+          // 방향 반전
+          if (position > 10) direction = -1;
+          if (position < -10) direction = 1;
+
+          position += direction * 0.5;
+
+          project.style.transform = `translateY(${position}px)`;
+        }, 50 + index * 10); // 각 박스마다 약간 다른 타이밍으로 애니메이션 시작
+      });
+
+      // 타이핑 애니메이션
+      const titleText = "Project List";
+      const typedText = document.getElementById("typed-text");
+      let i = 0;
+
+      function typeEffect() {
+        if (i < titleText.length) {
+          typedText.innerHTML += titleText.charAt(i);
+          i++;
+          setTimeout(typeEffect, 150);
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+    <footer>
+      <p>Thank you for visiting @</p>
+    </footer>
+  </body>
+</html>
